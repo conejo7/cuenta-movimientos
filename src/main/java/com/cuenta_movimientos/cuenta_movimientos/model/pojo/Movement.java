@@ -1,9 +1,9 @@
 package com.cuenta_movimientos.cuenta_movimientos.model.pojo;
 
+
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+
 
 
 import java.time.LocalDateTime;
@@ -36,7 +36,6 @@ public class Movement {
     private Double saldo;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "cuenta_id", nullable = false)
     private Account account;
 

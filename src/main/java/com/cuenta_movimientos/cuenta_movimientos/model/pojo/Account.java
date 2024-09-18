@@ -1,10 +1,9 @@
 package com.cuenta_movimientos.cuenta_movimientos.model.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -13,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cuenta_id_gen")
@@ -32,7 +32,5 @@ public class Account {
     @Column(name = "estado")
     private Boolean estado;
 
-//    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Movement> movimientos;
 
 }
